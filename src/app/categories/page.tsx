@@ -1,0 +1,56 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { CATEGORIES } from '@/lib/constants'
+import { Bed, Feather, Wind, Square, ChefHat, Package, Archive, Shirt, Baby, Sparkles, Home, Percent } from 'lucide-react'
+
+const iconMap: Record<string, any> = {
+  Bed, Feather, Wind, Square, ChefHat, Package, Archive, Shirt, Baby, Sparkles, Home, Percent
+}
+
+export default function CategoriesPage() {
+  return (
+    <div className="container mx-auto px-4 py-16">
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-center mb-12"
+      >
+        <h1 className="text-4xl font-bold text-primary mb-4">All Categories</h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Browse our wide range of product categories to find exactly what you need.
+        </p>
+      </motion.div>
+
+      {/* Categories Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {CATEGORIES.map((category, index) => {
+          const Icon = iconMap[category.icon] || Package
+          return (
+            <motion.div
+              key={category.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+            >
+              <Link
+                href={`/category/${category.slug}`}
+                className="group block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary transition-colors">
+                  <Icon className="w-10 h-10 text-secondary group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-center font-semibold text-primary text-lg group-hover:text-secondary transition-colors">
+                  {category.name}
+                </h3>
+              </Link>
+            </motion.div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}

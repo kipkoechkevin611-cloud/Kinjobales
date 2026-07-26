@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+  }
+
+  .dark {
+    --background: 30 30 30;
+    --foreground: 255 255 255;
+  }
+}
+
+@layer base {
+  * {
+    border-color: rgb(200 200 200);
+  }
+  body {
+    background-color: rgb(255 255 255);
+    color: rgb(0 0 0);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: rgb(0 0 0);
+  }
+  
+  p, span, div {
+    color: rgb(0 0 0);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .glass-dark {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(243 244 246);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(156 163 175);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(107 114 128);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Image zoom effect */
+.zoom-image {
+  transition: transform 0.3s ease;
+}
+
+.zoom-image:hover {
+  transform: scale(1.05);
+}

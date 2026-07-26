@@ -11,6 +11,7 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import Textarea from '@/components/ui/Textarea'
 import Select from '@/components/ui/Select'
+import Card from '@/components/ui/Card'
 import { useToast } from '@/components/ui/toast'
 import { CATEGORIES } from '@/lib/constants'
 

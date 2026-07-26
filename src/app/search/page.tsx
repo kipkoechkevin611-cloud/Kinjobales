@@ -6,6 +6,7 @@ import { Search } from 'lucide-react'
 import ProductCard from '@/components/products/ProductCard'
 import Input from '@/components/ui/Input'
 import { products, searchProducts } from '@/data/products'
+import { Product } from '@/types'
 
 export default function SearchPage() {
   const [query, setQuery] = useState('')

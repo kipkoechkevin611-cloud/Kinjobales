@@ -183,8 +183,8 @@ export default function NewProductPage() {
                     id="image-upload"
                   />
                   <label htmlFor="image-upload">
-                    <Button type="button" variant="outline" asChild>
-                      <span>Browse Files</span>
+                    <Button type="button" variant="outline">
+                      Browse Files
                     </Button>
                   </label>
                 </div>

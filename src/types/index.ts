@@ -8,21 +8,21 @@ export interface Product {
   retailPrice?: number
   discount?: number
   images: string[]
-  colors: string[]
-  sizes: string[]
+  colors?: string[]
+  sizes?: string[]
   stock: number
   featured: boolean
-  newArrival: boolean
+  newArrival?: boolean
   flashDeal?: {
     enabled: boolean
     discount: number
     endDate: Date
   }
   specifications?: Record<string, string>
-  reviews: Review[]
+  reviews?: Review[]
   rating: number
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface Category {

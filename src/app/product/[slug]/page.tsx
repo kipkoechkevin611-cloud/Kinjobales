@@ -132,7 +132,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </button>
           </div>
           <div className="grid grid-cols-3 gap-4">
-            {product.images.map((image, index) => (
+            {product.images.map((image: string, index: number) => (
               <button
                 key={index}
                 onClick={() => setSelectedImage(index)}
@@ -185,7 +185,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div className="mb-6">
               <h3 className="font-semibold text-primary mb-3">Color: {selectedColor}</h3>
               <div className="flex gap-3">
-                {product.colors.map((color) => (
+                {product.colors.map((color: string) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
@@ -205,7 +205,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div className="mb-6">
               <h3 className="font-semibold text-primary mb-3">Size: {selectedSize}</h3>
               <div className="flex gap-3">
-                {product.sizes.map((size) => (
+                {product.sizes.map((size: string) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
@@ -285,7 +285,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 {Object.entries(product.specifications).map(([key, value]) => (
                   <div key={key} className="flex justify-between">
                     <span className="text-gray-600">{key}</span>
-                    <span className="font-medium">{value}</span>
+                    <span className="font-medium">{String(value)}</span>
                   </div>
                 ))}
               </div>

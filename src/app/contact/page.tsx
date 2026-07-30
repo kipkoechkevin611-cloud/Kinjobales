@@ -63,8 +63,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                <a href="tel:+254700000000" className="text-gray-600 hover:text-primary transition-colors">
-                  +254 700 000 000
+                <a href="tel:+254785388475" className="text-gray-600 hover:text-primary transition-colors">
+                  +254 785 388 475
                 </a>
               </div>
             </div>

@@ -55,4 +55,4 @@ export const SORT_OPTIONS = [
   { value: 'popular', label: 'Most Popular' },
 ]
 
-export const WHATSAPP_NUMBER = process.env.WHATSAPP_NUMBER || '254700000000'
+export const WHATSAPP_NUMBER = process.env.WHATSAPP_NUMBER || '254785388475'

@@ -83,7 +83,7 @@ export default function TermsPage() {
             </p>
             <ul className="list-none text-gray-600 space-y-2">
               <li>Email: info@kinjobales.co.ke</li>
-              <li>Phone: +254 700 000 000</li>
+              <li>Phone: +254 785 388 475</li>
               <li>Address: Keringet Centre, Nakuru, Kenya</li>
             </ul>
           </section>

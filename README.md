@@ -55,7 +55,7 @@ cp .env.example .env.local
 ```env
 MONGODB_URI=mongodb://localhost:27017/kinjo-bales
 JWT_SECRET=your-super-secret-jwt-key
-WHATSAPP_NUMBER=254700000000
+WHATSAPP_NUMBER=254785388475
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
@@ -222,7 +222,7 @@ This project is proprietary software for Kinjo Bales Wholesalers.
 
 For support, contact:
 - Email: info@kinjobales.co.ke
-- Phone: +254 700 000 000
+- Phone: +254 785 388 475
 - Address: Keringet Centre, Nakuru, Kenya
 
 ---

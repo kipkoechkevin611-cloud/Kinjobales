@@ -12,8 +12,8 @@ const iconMap: Record<string, any> = {
 export default function FeaturedCategories() {
   return (
     <div>
-      <h2 className="text-3xl font-bold text-primary mb-8 text-center">Shop by Category</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <h2 className="text-2xl font-bold text-primary mb-4 text-center">Shop by Category</h2>
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
         {CATEGORIES.map((category, index) => {
           const Icon = iconMap[category.icon] || Package
           return (
@@ -22,16 +22,16 @@ export default function FeaturedCategories() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
             >
               <Link
                 href={`/category/${category.slug}`}
-                className="group block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+                className="group block bg-white rounded-lg p-2 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 border border-gray-100"
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary transition-colors">
-                  <Icon className="w-8 h-8 text-secondary group-hover:text-white transition-colors" />
+                <div className="w-10 h-10 mx-auto mb-1 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary transition-colors">
+                  <Icon className="w-5 h-5 text-secondary group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-center font-semibold text-primary group-hover:text-secondary transition-colors">
+                <h3 className="text-center text-xs font-medium text-primary group-hover:text-secondary transition-colors truncate">
                   {category.name}
                 </h3>
               </Link>

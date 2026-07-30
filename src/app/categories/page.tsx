@@ -4,12 +4,19 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { CATEGORIES } from '@/lib/constants'
 import { Bed, Feather, Wind, Square, ChefHat, Package, Archive, Shirt, Baby, Sparkles, Home, Percent } from 'lucide-react'
+import { products } from '@/data/products'
 
 const iconMap: Record<string, any> = {
   Bed, Feather, Wind, Square, ChefHat, Package, Archive, Shirt, Baby, Sparkles, Home, Percent
 }
 
 export default function CategoriesPage() {
+  // Calculate product count for each category
+  const categoryCounts = CATEGORIES.reduce((acc, category) => {
+    acc[category.name] = products.filter(p => p.category === category.name).length
+    return acc
+  }, {} as Record<string, number>)
+
   return (
     <div className="container mx-auto px-4 py-16">
       {/* Header */}
@@ -24,10 +31,38 @@ export default function CategoriesPage() {
         </p>
       </motion.div>
 
+      {/* All Products Link */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-8"
+      >
+        <Link
+          href="/shop"
+          className="group block bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center group-hover:bg-secondary transition-colors">
+                <Package className="w-8 h-8 text-secondary group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-primary text-lg group-hover:text-secondary transition-colors">
+                  All Products
+                </h3>
+                <p className="text-sm text-gray-500">{products.length} products</p>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </motion.div>
+
       {/* Categories Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {CATEGORIES.map((category, index) => {
           const Icon = iconMap[category.icon] || Package
+          const count = categoryCounts[category.name] || 0
           return (
             <motion.div
               key={category.id}
@@ -46,6 +81,7 @@ export default function CategoriesPage() {
                 <h3 className="text-center font-semibold text-primary text-lg group-hover:text-secondary transition-colors">
                   {category.name}
                 </h3>
+                <p className="text-center text-sm text-gray-500">{count} products</p>
               </Link>
             </motion.div>
           )

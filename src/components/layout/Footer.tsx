@@ -110,8 +110,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-300 flex-shrink-0" />
-                <a href="mailto:info@kinjobales.co.ke" className="text-gray-200 hover:text-white transition-colors">
-                  info@kinjobales.co.ke
+                <a href="mailto:infokinjostore001@gmail.com" className="text-gray-200 hover:text-white transition-colors">
+                  infokinjostore001@gmail.com
                 </a>
               </li>
             </ul>

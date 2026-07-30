@@ -42,12 +42,9 @@ export default function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">KB</span>
-            </div>
-            <span className="font-bold text-xl text-black hidden sm:block">
-              Kinjo Bales
+          <Link href="/" className="flex items-center">
+            <span className="font-extrabold text-2xl md:text-3xl text-black tracking-tight">
+              KINJO BALES
             </span>
           </Link>
 

@@ -18,39 +18,39 @@ export default function Home() {
         <HeroSlider />
       </Suspense>
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-12">
         <FeaturedCategories />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <TopSellingProducts />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <NewArrivals />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <FlashDeals />
       </div>
 
-      <div className="bg-blue-900 text-white py-16">
+      <div className="bg-blue-900 text-white py-20">
         <WhyShopWithUs />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <CustomerReviews />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <Brands />
       </div>
 
-      <div className="bg-blue-600 text-white py-16">
+      <div className="bg-blue-600 text-white py-20">
         <Statistics />
       </div>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-16">
         <Newsletter />
       </div>
 

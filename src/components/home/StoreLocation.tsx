@@ -8,13 +8,17 @@ export default function StoreLocation() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-primary mb-8 text-center">Visit Our Store</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Map Placeholder */}
-          <div className="bg-gray-300 rounded-xl h-80 flex items-center justify-center">
-            <div className="text-center text-gray-600">
-              <MapPin className="w-12 h-12 mx-auto mb-2" />
-              <p>Google Maps Integration</p>
-              <p className="text-sm">Keringet Centre, Nakuru, Kenya</p>
-            </div>
+          {/* Google Map */}
+          <div className="rounded-xl overflow-hidden shadow-lg h-80">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.123456789!2d36.0666667!3d-0.2833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTYnNTkuOSJTIDM2wrAwNCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
 
           {/* Contact Info */}
@@ -35,7 +39,9 @@ export default function StoreLocation() {
               </div>
               <div>
                 <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                <p className="text-gray-600">+254 700 000 000</p>
+                <a href="tel:+254785388475" className="text-gray-600 hover:text-primary transition-colors">
+                  +254 785 388 475
+                </a>
               </div>
             </div>
 
@@ -45,7 +51,9 @@ export default function StoreLocation() {
               </div>
               <div>
                 <h3 className="font-semibold text-primary mb-1">Email</h3>
-                <p className="text-gray-600">info@kinjobales.co.ke</p>
+                <a href="mailto:infokinjostore001@gmail.com" className="text-gray-600 hover:text-primary transition-colors">
+                  infokinjostore001@gmail.com
+                </a>
               </div>
             </div>
 

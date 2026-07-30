@@ -50,8 +50,8 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/product/${product.slug}`}>
-      <Card hover className="group">
-        <div className="relative aspect-square overflow-hidden bg-gray-100">
+      <Card hover className="group h-full flex flex-col">
+        <div className="relative aspect-square overflow-hidden bg-gray-100 flex-shrink-0">
           <img
             src={product.images[0]}
             alt={product.name}
@@ -91,21 +91,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="p-4">
-          <p className="text-sm text-gray-500 mb-1">{product.category}</p>
-          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-secondary transition-colors">
+        <div className="p-4 flex flex-col flex-grow">
+          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-secondary transition-colors flex-grow">
             {product.name}
           </h3>
-          
-          <div className="flex items-center gap-1 mb-2">
-            <div className="flex text-yellow-400">
-              {'★'.repeat(Math.floor(product.rating))}
-              {product.rating % 1 !== 0 && '☆'}
-            </div>
-            <span className="text-sm text-gray-500">({product.rating})</span>
-          </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-auto">
             <div>
               <span className="text-lg font-bold text-black">{formatPrice(finalPrice)}</span>
               {product.discount && (

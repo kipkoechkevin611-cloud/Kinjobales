@@ -82,7 +82,7 @@ export default function TermsPage() {
               For questions about these Terms of Service, please contact us at:
             </p>
             <ul className="list-none text-gray-600 space-y-2">
-              <li>Email: info@kinjobales.co.ke</li>
+              <li>Email: infokinjostore001@gmail.com</li>
               <li>Phone: +254 785 388 475</li>
               <li>Address: Keringet Centre, Nakuru, Kenya</li>
             </ul>

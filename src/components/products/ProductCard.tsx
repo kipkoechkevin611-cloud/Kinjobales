@@ -52,11 +52,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     <Link href={`/product/${product.slug}`}>
       <Card hover className="group">
         <div className="relative aspect-square overflow-hidden bg-gray-100">
-          <Image
+          <img
             src={product.images[0]}
             alt={product.name}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           
           {/* Badges */}

@@ -11,18 +11,24 @@ import { CATEGORIES, SORT_OPTIONS } from '@/lib/constants'
 import { products } from '@/data/products'
 import Link from 'next/link'
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+export default function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [sortBy, setSortBy] = useState('newest')
   const [priceRange, setPriceRange] = useState({ min: 0, max: 20000 })
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [showFilters, setShowFilters] = useState(false)
   const [category, setCategory] = useState<any>(null)
+  const [slug, setSlug] = useState('')
 
   useEffect(() => {
-    const foundCategory = CATEGORIES.find(c => c.slug === params.slug)
-    setCategory(foundCategory)
-  }, [params.slug])
+    const loadCategory = async () => {
+      const resolvedParams = await params
+      setSlug(resolvedParams.slug)
+      const foundCategory = CATEGORIES.find(c => c.slug === resolvedParams.slug)
+      setCategory(foundCategory)
+    }
+    loadCategory()
+  }, [params])
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = category && product.category === category.name

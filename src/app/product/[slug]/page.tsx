@@ -111,12 +111,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           animate={{ opacity: 1, x: 0 }}
         >
           <div className="relative aspect-square bg-gray-100 rounded-2xl overflow-hidden mb-4">
-            <Image
+            <img
               src={product.images[selectedImage]}
               alt={product.name}
-              fill
-              className="object-cover"
-              priority
+              className="w-full h-full object-cover"
             />
             <button
               onClick={prevImage}
@@ -140,11 +138,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   selectedImage === index ? 'border-secondary' : 'border-transparent'
                 }`}
               >
-                <Image
+                <img
                   src={image}
                   alt={`${product.name} ${index + 1}`}
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
                 />
               </button>
             ))}
@@ -304,11 +301,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <Link href={`/product/${relatedProduct.slug}`}>
                   <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
                     <div className="aspect-square bg-gray-100 rounded-lg mb-4 relative">
-                      <Image
+                      <img
                         src={relatedProduct.images[0]}
                         alt={relatedProduct.name}
-                        fill
-                        className="object-cover rounded-lg"
+                        className="w-full h-full object-cover rounded-lg"
                       />
                     </div>
                     <h3 className="font-semibold text-primary mb-2">{relatedProduct.name}</h3>

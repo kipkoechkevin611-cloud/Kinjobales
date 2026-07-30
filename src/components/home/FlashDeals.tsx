@@ -62,7 +62,7 @@ export default function FlashDeals() {
           </Button>
         </Link>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {flashDealsProducts.map((product, index) => (
           <motion.div
             key={product._id}

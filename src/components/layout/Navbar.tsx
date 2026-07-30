@@ -96,9 +96,6 @@ export default function Navbar() {
               )}
             </button>
 
-            <Link href="/admin/login" className="hidden md:block">
-              <User className="w-5 h-5 text-black" />
-            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -167,13 +164,6 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
-                </Link>
-                <Link
-                  href="/admin/login"
-                  className="text-black hover:text-blue-600 transition-colors font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Admin
                 </Link>
               </div>
             </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/layout/Navbar'
+import CategoryNavbar from '@/components/layout/CategoryNavbar'
 import Footer from '@/components/layout/Footer'
 import WhatsAppFloat from '@/components/layout/WhatsAppFloat'
 import { Toaster } from '@/components/ui/toast'
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Navbar />
+        <CategoryNavbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppFloat />

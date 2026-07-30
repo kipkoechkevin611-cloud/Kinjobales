@@ -96,7 +96,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="p-4 flex flex-col flex-grow bg-gradient-to-b from-white to-gray-50">
-          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors flex-grow">
+          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
             {product.name}
           </h3>
           
@@ -104,11 +104,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             <p className="text-xs text-gray-500 mb-3 line-clamp-2">{product.description}</p>
           )}
 
-          <div className="flex items-center justify-between mt-auto gap-2">
-            <div className="flex-1">
+          <div className="mt-auto">
+            <div className="flex items-center justify-between mb-3">
               <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{formatPrice(finalPrice)}</span>
               {product.discount && (
-                <span className="text-sm text-gray-400 line-through ml-2">
+                <span className="text-sm text-gray-400 line-through">
                   {formatPrice(product.price)}
                 </span>
               )}
@@ -117,24 +117,25 @@ export default function ProductCard({ product }: ProductCardProps) {
               <button
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className={`p-2 rounded-lg transition-all hover:scale-105 ${
+                className={`flex-1 py-2 rounded-lg transition-all hover:scale-105 text-sm font-medium ${
                   product.stock === 0
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-md'
                 }`}
                 aria-label="Add to cart"
               >
-                <ShoppingCart className="w-4 h-4" />
+                <ShoppingCart className="w-4 h-4 inline mr-1" />
+                Cart
               </button>
               <button
                 disabled={product.stock === 0}
-                className={`px-3 py-2 rounded-lg transition-all hover:scale-105 text-xs font-medium ${
+                className={`flex-1 py-2 rounded-lg transition-all hover:scale-105 text-sm font-medium ${
                   product.stock === 0
                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-md'
                 }`}
               >
-                View
+                View Details
               </button>
             </div>
           </div>

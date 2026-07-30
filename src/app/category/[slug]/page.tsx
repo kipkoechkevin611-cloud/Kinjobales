@@ -25,7 +25,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   }, [params.slug])
 
   const filteredProducts = products.filter((product) => {
-    const matchesCategory = category && product.category.toLowerCase() === category.name.toLowerCase()
+    const matchesCategory = category && product.category === category.name
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesPrice = product.price >= priceRange.min && product.price <= priceRange.max
     return matchesCategory && matchesSearch && matchesPrice

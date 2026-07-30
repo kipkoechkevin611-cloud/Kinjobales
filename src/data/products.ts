@@ -1374,7 +1374,7 @@ export const products: Product[] = [
     price: 1000,
     retailPrice: 1400,
     description: 'Insulated thermos small, keeps drinks hot or cold.',
-    images: ['/INSULATED THARMOS SMALL.jpg'],
+    images: ['/Bottles And Thermos.jpg'],
     stock: 50,
     rating: 4.5,
     colors: ['Silver', 'Blue', 'Red'],

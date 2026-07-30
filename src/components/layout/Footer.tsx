@@ -98,8 +98,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-blue-300 mt-1 flex-shrink-0" />
                 <span className="text-gray-200">
-                  Nakuru, Kenya<br />
-                  Keringet Centre
+                  Nairobi, Kenya
                 </span>
               </li>
               <li className="flex items-center gap-3">

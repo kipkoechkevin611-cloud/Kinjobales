@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   ogImage: '/og-image.jpg',
   links: {
     twitter: 'https://twitter.com/kinjobales',
-    facebook: 'https://facebook.com/kinjobales',
+    facebook: 'https://www.facebook.com/share/194Zxt9hQh/',
     instagram: 'https://instagram.com/kinjobales',
   },
 }

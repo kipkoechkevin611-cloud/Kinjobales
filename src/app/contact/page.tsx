@@ -52,8 +52,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-semibold text-primary mb-1">Address</h3>
-                <p className="text-gray-600">Keringet Centre</p>
-                <p className="text-gray-600">Nakuru, Kenya</p>
+                <p className="text-gray-600">Nairobi, Kenya</p>
               </div>
             </div>
 

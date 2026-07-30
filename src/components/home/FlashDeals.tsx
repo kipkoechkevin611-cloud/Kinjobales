@@ -36,28 +36,28 @@ export default function FlashDeals() {
   }, [])
 
   return (
-    <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+    <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-6 md:p-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-primary mb-2">Flash Deals</h2>
-          <div className="flex items-center gap-2 text-gray-600">
-            <Clock className="w-5 h-5" />
+          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">Flash Deals</h2>
+          <div className="flex items-center gap-2 text-gray-600 text-sm md:text-base">
+            <Clock className="w-4 h-4 md:w-5 md:h-5" />
             <span className="font-semibold">Ends in:</span>
             <div className="flex gap-2">
-              <span className="bg-primary text-white px-3 py-1 rounded-lg font-mono">
+              <span className="bg-primary text-white px-2 py-1 md:px-3 md:py-1 rounded-lg font-mono text-sm">
                 {String(timeLeft.hours).padStart(2, '0')}h
               </span>
-              <span className="bg-primary text-white px-3 py-1 rounded-lg font-mono">
+              <span className="bg-primary text-white px-2 py-1 md:px-3 md:py-1 rounded-lg font-mono text-sm">
                 {String(timeLeft.minutes).padStart(2, '0')}m
               </span>
-              <span className="bg-primary text-white px-3 py-1 rounded-lg font-mono">
+              <span className="bg-primary text-white px-2 py-1 md:px-3 md:py-1 rounded-lg font-mono text-sm">
                 {String(timeLeft.seconds).padStart(2, '0')}s
               </span>
             </div>
           </div>
         </div>
         <Link href="/offers">
-          <Button variant="secondary">
+          <Button variant="secondary" className="text-sm md:text-base">
             View All Deals <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>

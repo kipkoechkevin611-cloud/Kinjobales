@@ -33,6 +33,8 @@ export const CATEGORIES = [
   { id: 'suit-cases', name: 'Suit Cases', slug: 'suit-cases', icon: 'Suitcase' },
   { id: 'tableware-serveware', name: 'Tableware And Serveware', slug: 'tableware-serveware', icon: 'Dinner' },
   { id: 'towels', name: 'Towels', slug: 'towels', icon: 'Towel' },
+  { id: 'blankets', name: 'Blankets', slug: 'blankets', icon: 'Layers' },
+  { id: 'blanket-covers', name: 'Blanket Covers', slug: 'blanket-covers', icon: 'Feather' },
 ]
 
 export const COUNTIES = [

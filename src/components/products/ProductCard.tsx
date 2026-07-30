@@ -22,6 +22,7 @@ interface ProductCardProps {
     images: string[]
     stock: number
     rating: number
+    description?: string
   }
 }
 
@@ -50,32 +51,35 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/product/${product.slug}`}>
-      <Card hover className="group h-full flex flex-col">
-        <div className="relative aspect-square overflow-hidden bg-gray-100 flex-shrink-0">
+      <Card hover className="group h-full flex flex-col overflow-hidden border-2 border-transparent hover:border-blue-200 transition-all duration-300">
+        <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 flex-shrink-0">
           <img
             src={product.images[0]}
             alt={product.name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
           
+          {/* Gradient overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
           {/* Badges */}
-          <div className="absolute top-3 left-3 flex flex-col gap-2">
+          <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
             {product.discount && (
-              <Badge variant="danger">-{product.discount}%</Badge>
+              <Badge variant="danger" className="shadow-lg">-{product.discount}%</Badge>
             )}
             {product.stock < 10 && product.stock > 0 && (
-              <Badge variant="warning">Low Stock</Badge>
+              <Badge variant="warning" className="shadow-lg">Low Stock</Badge>
             )}
             {product.stock === 0 && (
-              <Badge variant="default">Out of Stock</Badge>
+              <Badge variant="default" className="shadow-lg">Out of Stock</Badge>
             )}
           </div>
 
           {/* Quick Actions */}
-          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
             <button
               onClick={handleWishlist}
-              className="p-2 bg-white rounded-full shadow-md hover:bg-red-50 transition-colors"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all"
               aria-label="Add to wishlist"
             >
               <Heart
@@ -83,7 +87,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               />
             </button>
             <button
-              className="p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors"
+              className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all"
               aria-label="Quick view"
             >
               <Eye className="w-4 h-4 text-gray-600" />
@@ -91,32 +95,48 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
 
-        <div className="p-4 flex flex-col flex-grow">
-          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-secondary transition-colors flex-grow">
+        <div className="p-4 flex flex-col flex-grow bg-gradient-to-b from-white to-gray-50">
+          <h3 className="font-semibold text-primary mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors flex-grow">
             {product.name}
           </h3>
+          
+          {product.description && (
+            <p className="text-xs text-gray-500 mb-3 line-clamp-2">{product.description}</p>
+          )}
 
-          <div className="flex items-center justify-between mt-auto">
-            <div>
-              <span className="text-lg font-bold text-black">{formatPrice(finalPrice)}</span>
+          <div className="flex items-center justify-between mt-auto gap-2">
+            <div className="flex-1">
+              <span className="text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">{formatPrice(finalPrice)}</span>
               {product.discount && (
                 <span className="text-sm text-gray-400 line-through ml-2">
                   {formatPrice(product.price)}
                 </span>
               )}
             </div>
-            <button
-              onClick={handleAddToCart}
-              disabled={product.stock === 0}
-              className={`p-2 rounded-lg transition-colors ${
-                product.stock === 0
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-blue-600 text-white hover:bg-blue-700'
-              }`}
-              aria-label="Add to cart"
-            >
-              <ShoppingCart className="w-4 h-4" />
-            </button>
+            <div className="flex gap-2">
+              <button
+                onClick={handleAddToCart}
+                disabled={product.stock === 0}
+                className={`p-2 rounded-lg transition-all hover:scale-105 ${
+                  product.stock === 0
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-md'
+                }`}
+                aria-label="Add to cart"
+              >
+                <ShoppingCart className="w-4 h-4" />
+              </button>
+              <button
+                disabled={product.stock === 0}
+                className={`px-3 py-2 rounded-lg transition-all hover:scale-105 text-xs font-medium ${
+                  product.stock === 0
+                    ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:from-purple-600 hover:to-pink-600 shadow-md'
+                }`}
+              >
+                View
+              </button>
+            </div>
           </div>
         </div>
       </Card>

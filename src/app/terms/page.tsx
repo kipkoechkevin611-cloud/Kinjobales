@@ -84,7 +84,7 @@ export default function TermsPage() {
             <ul className="list-none text-gray-600 space-y-2">
               <li>Email: infokinjostore001@gmail.com</li>
               <li>Phone: +254 785 388 475</li>
-              <li>Address: Keringet Centre, Nakuru, Kenya</li>
+              <li>Address: Nairobi, Kenya</li>
             </ul>
           </section>
         </div>

@@ -92,25 +92,25 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-6 md:py-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <span>/</span>
-        <Link href="/shop" className="hover:text-primary">Shop</Link>
-        <span>/</span>
-        <Link href={`/category/${product.category.toLowerCase()}`} className="hover:text-primary">{product.category}</Link>
-        <span>/</span>
-        <span className="text-primary">{product.name}</span>
+      <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600 mb-6 overflow-x-auto">
+        <Link href="/" className="hover:text-primary whitespace-nowrap">Home</Link>
+        <span className="whitespace-nowrap">/</span>
+        <Link href="/shop" className="hover:text-primary whitespace-nowrap">Shop</Link>
+        <span className="whitespace-nowrap">/</span>
+        <Link href={`/category/${product.category.toLowerCase()}`} className="hover:text-primary whitespace-nowrap">{product.category}</Link>
+        <span className="whitespace-nowrap">/</span>
+        <span className="text-primary whitespace-nowrap">{product.name}</span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 mb-12">
         {/* Image Gallery */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
         >
-          <div className="relative aspect-square bg-gray-100 rounded-2xl overflow-hidden mb-4">
+          <div className="relative aspect-square bg-gray-100 rounded-2xl overflow-hidden mb-4 shadow-lg">
             <img
               src={product.images[selectedImage]}
               alt={product.name}
@@ -118,24 +118,29 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             />
             <button
               onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-md"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
             </button>
             <button
               onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-md"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
             </button>
+            {product.discount && (
+              <Badge variant="danger" className="absolute top-4 left-4 text-sm md:text-base">
+                -{product.discount}%
+              </Badge>
+            )}
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-4 gap-3">
             {product.images.map((image: string, index: number) => (
               <button
                 key={index}
                 onClick={() => setSelectedImage(index)}
-                className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
-                  selectedImage === index ? 'border-secondary' : 'border-transparent'
+                className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                  selectedImage === index ? 'border-blue-600 shadow-md scale-105' : 'border-transparent hover:border-gray-300'
                 }`}
               >
                 <img
@@ -152,42 +157,46 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
+          className="flex flex-col"
         >
-          <Badge variant="success" className="mb-4">{product.category}</Badge>
-          <h1 className="text-3xl font-bold text-primary mb-4">{product.name}</h1>
+          <div className="mb-4">
+            <Badge variant="success" className="text-xs md:text-sm">{product.category}</Badge>
+          </div>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 leading-tight">{product.name}</h1>
           
           <div className="flex items-center gap-2 mb-4">
             <div className="flex text-yellow-400">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className={`w-5 h-5 ${i < Math.floor(product.rating) ? 'fill-current' : ''}`} />
+                <Star key={i} className={`w-4 h-4 md:w-5 md:h-5 ${i < Math.floor(product.rating) ? 'fill-current' : ''}`} />
               ))}
             </div>
-            <span className="text-gray-600">({product.rating} rating)</span>
+            <span className="text-sm md:text-base text-gray-600">({product.rating})</span>
           </div>
 
-          <div className="flex items-center gap-4 mb-6">
-            <span className="text-3xl font-bold text-primary">{formatPrice(finalPrice)}</span>
+          <div className="flex items-center gap-3 md:gap-4 mb-6">
+            <span className="text-2xl md:text-3xl font-bold text-primary">{formatPrice(finalPrice)}</span>
             {product.discount && (
               <>
-                <span className="text-xl text-gray-400 line-through">{formatPrice(product.price)}</span>
-                <Badge variant="danger">-{product.discount}%</Badge>
+                <span className="text-lg md:text-xl text-gray-400 line-through">{formatPrice(product.price)}</span>
               </>
             )}
           </div>
 
-          <p className="text-gray-600 mb-6">{product.description}</p>
+          <p className="text-gray-600 mb-6 text-sm md:text-base leading-relaxed">{product.description}</p>
 
           {/* Color Selection */}
           {product.colors && product.colors.length > 0 && (
-            <div className="mb-6">
-              <h3 className="font-semibold text-primary mb-3">Color: {selectedColor}</h3>
-              <div className="flex gap-3">
+            <div className="mb-5">
+              <h3 className="font-semibold text-primary mb-3 text-sm md:text-base">Color: <span className="text-blue-600">{selectedColor}</span></h3>
+              <div className="flex flex-wrap gap-2">
                 {product.colors.map((color: string) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-colors ${
-                      selectedColor === color ? 'border-secondary bg-secondary/10' : 'border-gray-200'
+                    className={`px-3 py-2 md:px-4 md:py-2 rounded-lg border-2 transition-all text-sm ${
+                      selectedColor === color 
+                        ? 'border-blue-600 bg-blue-50 text-blue-600 font-medium' 
+                        : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     {color}
@@ -199,15 +208,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           {/* Size Selection */}
           {product.sizes && product.sizes.length > 0 && (
-            <div className="mb-6">
-              <h3 className="font-semibold text-primary mb-3">Size: {selectedSize}</h3>
-              <div className="flex gap-3">
+            <div className="mb-5">
+              <h3 className="font-semibold text-primary mb-3 text-sm md:text-base">Size: <span className="text-blue-600">{selectedSize}</span></h3>
+              <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size: string) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-colors ${
-                      selectedSize === size ? 'border-secondary bg-secondary/10' : 'border-gray-200'
+                    className={`px-3 py-2 md:px-4 md:py-2 rounded-lg border-2 transition-all text-sm ${
+                      selectedSize === size 
+                        ? 'border-blue-600 bg-blue-50 text-blue-600 font-medium' 
+                        : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     {size}
@@ -219,32 +230,32 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           {/* Quantity */}
           <div className="mb-6">
-            <h3 className="font-semibold text-primary mb-3">Quantity</h3>
+            <h3 className="font-semibold text-primary mb-3 text-sm md:text-base">Quantity</h3>
             <div className="flex items-center gap-4">
-              <div className="flex items-center border border-gray-200 rounded-lg">
+              <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="p-3 hover:bg-gray-100 transition-colors"
+                  className="p-2 md:p-3 hover:bg-gray-100 transition-colors"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="px-4 py-3 font-semibold">{quantity}</span>
+                <span className="px-4 py-2 md:py-3 font-semibold text-base md:text-lg min-w-[50px] text-center">{quantity}</span>
                 <button
                   onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                  className="p-3 hover:bg-gray-100 transition-colors"
+                  className="p-2 md:p-3 hover:bg-gray-100 transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
               </div>
-              <span className="text-sm text-gray-500">{product.stock} available</span>
+              <span className="text-xs md:text-sm text-gray-500">{product.stock} in stock</span>
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 mb-6">
             <Button
               size="lg"
-              className="flex-1"
+              className="flex-1 py-4 text-base md:text-lg"
               onClick={handleAddToCart}
               disabled={product.stock === 0}
             >
@@ -254,33 +265,51 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <Button
               variant="outline"
               size="lg"
+              className="flex-1 py-4 text-base md:text-lg"
               onClick={() => setShowOrderModal(true)}
             >
               Order Now
             </Button>
+          </div>
+
+          <div className="flex gap-3 mb-6">
             <Button
               variant="outline"
               size="lg"
+              className="flex-1 py-3"
               onClick={handleWishlist}
             >
               <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
+              <span className="ml-2 hidden sm:inline">Wishlist</span>
             </Button>
             <Button
               variant="outline"
               size="lg"
+              className="flex-1 py-3"
               onClick={handleShare}
             >
               <Share2 className="w-5 h-5" />
+              <span className="ml-2 hidden sm:inline">Share</span>
             </Button>
+          </div>
+
+          {/* Stock Status */}
+          <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="flex items-center gap-2">
+              <div className={`w-3 h-3 rounded-full ${product.stock > 0 ? 'bg-green-500' : 'bg-red-500'}`} />
+              <span className="text-sm font-medium">
+                {product.stock > 0 ? `${product.stock} items available` : 'Out of stock'}
+              </span>
+            </div>
           </div>
 
           {/* Specifications */}
           {product.specifications && (
-            <div className="border-t pt-6">
-              <h3 className="font-semibold text-primary mb-4">Specifications</h3>
+            <div className="border-t pt-6 mt-auto">
+              <h3 className="font-semibold text-primary mb-4 text-sm md:text-base">Specifications</h3>
               <div className="space-y-3">
                 {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key} className="flex justify-between">
+                  <div key={key} className="flex justify-between text-sm md:text-base">
                     <span className="text-gray-600">{key}</span>
                     <span className="font-medium">{String(value)}</span>
                   </div>
@@ -294,21 +323,21 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div>
-          <h2 className="text-2xl font-bold text-primary mb-8">Related Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-xl md:text-2xl font-bold text-primary mb-6">Related Products</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {relatedProducts.map((relatedProduct) => (
               <div key={relatedProduct._id}>
                 <Link href={`/product/${relatedProduct.slug}`}>
-                  <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                    <div className="aspect-square bg-gray-100 rounded-lg mb-4 relative">
+                  <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div className="aspect-square bg-gray-100 rounded-lg mb-3 relative overflow-hidden">
                       <img
                         src={relatedProduct.images[0]}
                         alt={relatedProduct.name}
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </div>
-                    <h3 className="font-semibold text-primary mb-2">{relatedProduct.name}</h3>
-                    <p className="text-lg font-bold">{formatPrice(relatedProduct.price)}</p>
+                    <h3 className="font-semibold text-primary mb-2 text-sm md:text-base line-clamp-2">{relatedProduct.name}</h3>
+                    <p className="text-base md:text-lg font-bold">{formatPrice(relatedProduct.price)}</p>
                   </div>
                 </Link>
               </div>

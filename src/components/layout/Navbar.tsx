@@ -43,7 +43,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="font-extrabold text-2xl md:text-3xl text-black tracking-tight">
+            <span className="font-extrabold text-xl md:text-2xl text-black tracking-tight">
               KINJO BALES
             </span>
           </Link>

@@ -223,7 +223,7 @@ This project is proprietary software for Kinjo Bales Wholesalers.
 For support, contact:
 - Email: infokinjostore001@gmail.com
 - Phone: +254 785 388 475
-- Address: Keringet Centre, Nakuru, Kenya
+- Address: Nairobi, Kenya
 
 ---
 

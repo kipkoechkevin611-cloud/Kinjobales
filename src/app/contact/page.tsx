@@ -96,7 +96,7 @@ export default function ContactPage() {
           {/* Google Map */}
           <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.123456789!2d36.0666667!3d-0.2833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTYnNTkuOSJTIDM2wrAwNCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.817531617742!2d36.82194631475391!3d-1.2863892899563788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d7e4b5b5b5%3A0x1234567890abcdef!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1234567890"
               width="100%"
               height="300"
               style={{ border: 0 }}
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
           {/* Get Directions Button */}
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=Keringet+Centre+Nakuru+Kenya"
+            href="https://www.google.com/maps/dir/?api=1&destination=Nairobi+Kenya"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"

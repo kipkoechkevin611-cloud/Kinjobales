@@ -11,7 +11,7 @@ export default function StoreLocation() {
           {/* Google Map */}
           <div className="rounded-xl overflow-hidden shadow-lg h-80">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.123456789!2d36.0666667!3d-0.2833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMTYnNTkuOSJTIDM2wrAwNCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.817531617742!2d36.82194631475391!3d-1.2863892899563788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d7e4b5b5b5%3A0x1234567890abcdef!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1234567890"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -29,7 +29,7 @@ export default function StoreLocation() {
               </div>
               <div>
                 <h3 className="font-semibold text-primary mb-1">Address</h3>
-                <p className="text-gray-600">Keringet Centre, Nakuru, Kenya</p>
+                <p className="text-gray-600">Nairobi, Kenya</p>
               </div>
             </div>
 

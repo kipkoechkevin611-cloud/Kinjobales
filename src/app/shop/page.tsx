@@ -26,11 +26,11 @@ export default function ShopPage() {
   })
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-6 md:py-8">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-primary mb-2">Shop All Products</h1>
-        <p className="text-gray-600">Discover our wide range of quality home products</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">Shop All Products</h1>
+        <p className="text-sm md:text-base text-gray-600">Discover our wide range of quality home products</p>
       </div>
 
       {/* Search and Filters */}

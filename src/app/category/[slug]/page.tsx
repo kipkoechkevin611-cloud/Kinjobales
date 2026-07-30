@@ -45,20 +45,20 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-6 md:py-8">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-        <Link href="/" className="hover:text-primary">Home</Link>
-        <span>/</span>
-        <Link href="/categories" className="hover:text-primary">Categories</Link>
-        <span>/</span>
-        <span className="text-primary">{category.name}</span>
+      <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600 mb-6 overflow-x-auto">
+        <Link href="/" className="hover:text-primary whitespace-nowrap">Home</Link>
+        <span className="whitespace-nowrap">/</span>
+        <Link href="/categories" className="hover:text-primary whitespace-nowrap">Categories</Link>
+        <span className="whitespace-nowrap">/</span>
+        <span className="text-primary whitespace-nowrap">{category.name}</span>
       </div>
 
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-primary mb-2">{category.name}</h1>
-        <p className="text-gray-600">Showing {filteredProducts.length} products</p>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">{category.name}</h1>
+        <p className="text-sm md:text-base text-gray-600">Showing {filteredProducts.length} products</p>
       </div>
 
       {/* Search and Filters */}
